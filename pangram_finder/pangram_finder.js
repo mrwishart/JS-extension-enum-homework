@@ -4,11 +4,11 @@ const PangramFinder = function (phrase) {
 }
 
 PangramFinder.prototype.isPangram = function () {
-
-  const word_array = this.phrase.split('');
+  // Question: I tried doing split in the initializer; kept throwing up an error when I tried to do the .includes below?
+  const phraseArray = this.phrase.split('');
 
   return this.alphabet.every(function (letter) {
-    return word_array.includes(letter);
+    return phraseArray.includes(letter);
   })
 }
 

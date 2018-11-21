@@ -6,7 +6,7 @@ IsogramFinder.prototype.isIsogram = function () {
 
   // Loop through every letter of the word
   return this.word.every((letter, index, word) => {
-    // Check if letter is contained in the rest of the word
+    // Check if current letter is contained in the remaining letters of the word
     return !word.slice(index+1).includes(letter);
   })
 

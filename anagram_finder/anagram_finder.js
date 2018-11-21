@@ -1,5 +1,4 @@
 const AnagramFinder = function (word) {
-  // this.word = word.toLowerCase().split('').sort();
   this.word = word;
 }
 
@@ -17,7 +16,7 @@ AnagramFinder.prototype.findAnagrams = function (otherWords) {
     const sortedWordArray = word.toLowerCase().split('').sort()
     const sortedThisWordArray = this.word.toLowerCase().split('').sort();
 
-    // Check each letter individually
+    // Check each letter matches individually. Return true only if they all match.
     return sortedWordArray.every((letter, index) => {
       return letter === sortedThisWordArray[index];
     })
