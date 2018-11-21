@@ -13,18 +13,14 @@ AnagramFinder.prototype.findAnagrams = function (otherWords) {
     if (this.word.toLowerCase() === word.toLowerCase()) {
       return false;
     }
-    // Alphabetize both words
-    sorted_word = word.toLowerCase().split('').sort().join('');
-    sorted_main_word = this.word.toLowerCase().split('').sort().join('');
+    // Array both words and sort them alphabetically
+    const sortedWordArray = word.toLowerCase().split('').sort()
+    const sortedThisWordArray = this.word.toLowerCase().split('').sort();
 
-    // Check if they are the same.
-    return sorted_word === sorted_main_word;
-
-    // console.log(temp_word, temp_this_word);
-    //
-    // return temp_word.every((letter, index) => {
-    //   return letter === temp_this_word[index];
-    // })
+    // Check each letter individually
+    return sortedWordArray.every((letter, index) => {
+      return letter === sortedThisWordArray[index];
+    })
   })
 }
 
