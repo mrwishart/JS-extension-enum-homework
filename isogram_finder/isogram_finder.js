@@ -3,18 +3,13 @@ const IsogramFinder = function (word) {
 }
 
 IsogramFinder.prototype.isIsogram = function () {
-  let temp_array = this.word.slice(1);
 
-  const repeatedLetters = this.word.every((letter) => {
-    if (temp_array.includes(letter)){
-      return false;
-    } else {
-      temp_array.shift();
-      return true;
-    }
-  });
+  // Loop through every letter of the word
+  return this.word.every((letter, index, word) => {
+    // Check if letter is contained in the rest of the word
+    return !word.slice(index+1).includes(letter);
+  })
 
-  return repeatedLetters;
 }
 
 module.exports = IsogramFinder;
