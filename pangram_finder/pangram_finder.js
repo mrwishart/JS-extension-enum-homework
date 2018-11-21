@@ -4,11 +4,11 @@ const PangramFinder = function (phrase) {
 }
 
 PangramFinder.prototype.isPangram = function () {
-  // Question: I tried doing split in the initializer; kept throwing up an error when I tried to do the .includes below?
-  const phraseArray = this.phrase.split('');
+  // Question: This kept throwing up an error when I tried to use this.phrase in the .includes below? Why do I need to assign a new variable for this to work?
+  const phraseString = this.phrase;
 
   return this.alphabet.every(function (letter) {
-    return phraseArray.includes(letter);
+    return phraseString.includes(letter);
   })
 }
 
