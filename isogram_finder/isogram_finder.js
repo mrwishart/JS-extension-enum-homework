@@ -3,9 +3,7 @@ const IsogramFinder = function (word) {
 }
 
 IsogramFinder.prototype.isIsogram = function () {
-  let temp_array = this.word.slice(0);
-  temp_array.shift();
-
+  let temp_array = this.word.slice(1);
 
   const repeatedLetters = this.word.every((letter) => {
     if (temp_array.includes(letter)){
