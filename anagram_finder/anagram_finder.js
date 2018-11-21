@@ -2,14 +2,18 @@ const AnagramFinder = function (word) {
   this.word = word;
 }
 
+AnagramFinder.prototype.notSameLength = function (word) {
+  return word.length !== this.word.length;
+};
+
+AnagramFinder.prototype.isIdentical = function (word) {
+  return word.toLowerCase() === this.word.toLowerCase();
+};
+
 AnagramFinder.prototype.findAnagrams = function (otherWords) {
   return otherWords.filter((word) => {
-    // If lengths don't match: Return false (filter word)
-    if (word.length !== this.word.length){
-      return false;
-    }
-    // If words are already identical: Return false (filter word)
-    if (this.word.toLowerCase() === word.toLowerCase()) {
+    // If lengths don't match or words identical: Return false
+    if (this.notSameLength(word) || this.isIdentical(word)){
       return false;
     }
     // Array both words and sort them alphabetically
@@ -22,6 +26,7 @@ AnagramFinder.prototype.findAnagrams = function (otherWords) {
     })
   })
 }
+
 
 
 
